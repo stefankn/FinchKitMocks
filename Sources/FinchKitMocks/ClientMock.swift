@@ -32,12 +32,24 @@ public final actor ClientMock: Client {
         
     }
     
-    public func getAlbums() async throws -> [Album] {
-        Album.preview(10)
+    public func getAlbums(sorting: Sorting = .added, limit: Int) async throws -> Pager<Album> {
+        Pager(items: Album.preview(10), total: 20, limit: limit, page: 1, sorting: .added)
+    }
+    
+    public func getNextPage(_ pager: Pager<Album>) async throws -> Pager<Album> {
+        Pager(items: Album.preview(10), total: 20, limit: 10, page: 1, sorting: .added)
     }
     
     public func getItems(for album: Album) async throws -> [Item] {
         Item.preview(20)
+    }
+    
+    public func getSingletons(sorting: Sorting = .added, limit: Int) async throws -> Pager<Item> {
+        Pager(items: Item.preview(20), total: 20, limit: 10, page: 1, sorting: .added)
+    }
+    
+    public func getNextPage(_ pager: Pager<Item>) async throws -> Pager<Item> {
+        Pager(items: Item.preview(20), total: 20, limit: 10, page: 1, sorting: .added)
     }
     
     public func artworkURL(for album: Album) -> URL? {
