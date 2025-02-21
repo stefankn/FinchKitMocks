@@ -44,6 +44,10 @@ public final actor ClientMock: Client {
         Item.preview(20)
     }
     
+    public func getItems(for playlist: Playlist) async throws -> [Item] {
+        Item.preview(20)
+    }
+    
     public func getSingletons(sorting: Sorting = .added, limit: Int) async throws -> Pager<Item> {
         Pager(items: Item.preview(20), total: 20, limit: 10, page: 1, sorting: .added)
     }
@@ -66,6 +70,22 @@ public final actor ClientMock: Client {
     
     public func streamURL(for item: Item) throws -> URL {
         URL(string: "http://test.local")!
+    }
+    
+    public func getPlaylists() async throws -> [Playlist] {
+        Playlist.preview(20)
+    }
+    
+    public func createPlaylist(name: String, description: String?, items: [Item]?) async throws -> Playlist {
+        .preview
+    }
+    
+    public func addItem(_ item: Item, to playlist: Playlist) async throws {
+        
+    }
+    
+    public func deleteItem(_ item: Item, from playlist: Playlist) async throws {
+        
     }
     
     
