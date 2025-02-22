@@ -44,8 +44,8 @@ public final actor ClientMock: Client {
         Item.preview(20)
     }
     
-    public func getItems(for playlist: Playlist) async throws -> [Item] {
-        Item.preview(20)
+    public func getEntries(for playlist: Playlist) async throws -> [PlaylistEntry] {
+        PlaylistEntry.preview(20)
     }
     
     public func getSingletons(sorting: Sorting = .added, limit: Int) async throws -> Pager<Item> {
@@ -80,11 +80,11 @@ public final actor ClientMock: Client {
         .preview
     }
     
-    public func addItem(_ item: Item, to playlist: Playlist) async throws {
+    public func add(_ item: Item, to playlist: Playlist) async throws {
         
     }
     
-    public func deleteItem(_ item: Item, from playlist: Playlist) async throws {
+    public func delete(_ entry: PlaylistEntry, from playlist: Playlist) async throws {
         
     }
     
