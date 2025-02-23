@@ -15,6 +15,7 @@ public extension Item {
     static var preview: Item {
         .init(
             id: 1,
+            entryId: nil,
             track: 1,
             disc: 1,
             title: "Sample track",
@@ -42,6 +43,7 @@ public extension Item {
         (1...count).map {
             Item(
                 id: $0,
+                entryId: nil,
                 track: $0,
                 disc: 1,
                 title: "Track \($0)",

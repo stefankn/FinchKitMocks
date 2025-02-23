@@ -80,8 +80,12 @@ public final actor ClientMock: Client {
         .preview
     }
     
-    public func add(_ item: Item, to playlist: Playlist) async throws {
+    public func delete(_ playlist: Playlist) async throws {
         
+    }
+    
+    public func add(_ item: Item, to playlist: Playlist) async throws -> PlaylistEntry {
+        .preview
     }
     
     public func delete(_ entry: PlaylistEntry, from playlist: Playlist) async throws {
