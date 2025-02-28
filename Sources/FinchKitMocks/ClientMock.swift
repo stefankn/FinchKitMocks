@@ -56,6 +56,14 @@ public final actor ClientMock: Client {
         Pager(items: Item.preview(20), total: 20, limit: 10, page: 1, type: nil, sorting: .added)
     }
     
+    public func path(for album: Album) async throws -> String {
+        ""
+    }
+    
+    public func delete(_ album: Album, deleteFiles: Bool) async throws {
+        
+    }
+    
     public func artworkURL(for album: Album) -> URL? {
         getRandomArtwork()
     }
