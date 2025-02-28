@@ -32,12 +32,12 @@ public final actor ClientMock: Client {
         
     }
     
-    public func getAlbums(sorting: Sorting = .added, limit: Int) async throws -> Pager<Album> {
-        Pager(items: Album.preview(10), total: 20, limit: limit, page: 1, sorting: .added)
+    public func getAlbums(type: AlbumType?, sorting: Sorting = .added, limit: Int) async throws -> Pager<Album> {
+        Pager(items: Album.preview(10), total: 20, limit: limit, page: 1, type: type, sorting: .added)
     }
     
     public func getNextPage(_ pager: Pager<Album>) async throws -> Pager<Album> {
-        Pager(items: Album.preview(10), total: 20, limit: 10, page: 1, sorting: .added)
+        Pager(items: Album.preview(10), total: 20, limit: pager.limit, page: pager.page, type: pager.type, sorting: pager.sorting)
     }
     
     public func getItems(for album: Album) async throws -> [Item] {
@@ -49,11 +49,11 @@ public final actor ClientMock: Client {
     }
     
     public func getSingletons(sorting: Sorting = .added, limit: Int) async throws -> Pager<Item> {
-        Pager(items: Item.preview(20), total: 20, limit: 10, page: 1, sorting: .added)
+        Pager(items: Item.preview(20), total: 20, limit: 10, page: 1, type: nil, sorting: .added)
     }
     
     public func getNextPage(_ pager: Pager<Item>) async throws -> Pager<Item> {
-        Pager(items: Item.preview(20), total: 20, limit: 10, page: 1, sorting: .added)
+        Pager(items: Item.preview(20), total: 20, limit: 10, page: 1, type: nil, sorting: .added)
     }
     
     public func artworkURL(for album: Album) -> URL? {
