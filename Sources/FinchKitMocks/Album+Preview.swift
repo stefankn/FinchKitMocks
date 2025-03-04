@@ -26,6 +26,9 @@ public extension Album {
               isArtworkAvailable: false,
               addedAt: .distantPast,
               media: "CD",
+              catalogNumber: "ABC",
+              barcode: "123",
+              asin: "123",
               isOfflineAvailable: false
         )
     }
@@ -48,6 +51,9 @@ public extension Album {
               isArtworkAvailable: false,
               addedAt: .distantPast,
               media: "CD",
+              catalogNumber: "ABC",
+              barcode: "123",
+              asin: "123",
               isOfflineAvailable: false
         )
     }

@@ -48,8 +48,8 @@ public final actor ClientMock: Client {
         PlaylistEntry.preview(20)
     }
     
-    public func getSingletons(sorting: Sorting = .added, limit: Int) async throws -> Pager<Item> {
-        Pager(items: Item.preview(20), total: 20, limit: 10, page: 1, type: nil, sorting: .added)
+    public func getSingletons(type: AlbumType?, sorting: Sorting = .added, limit: Int) async throws -> Pager<Item> {
+        Pager(items: Item.preview(20), total: 20, limit: 10, page: 1, type: type, sorting: .added)
     }
     
     public func getNextPage(_ pager: Pager<Item>) async throws -> Pager<Item> {
