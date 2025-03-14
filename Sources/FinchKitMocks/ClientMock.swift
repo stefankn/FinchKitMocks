@@ -104,6 +104,10 @@ public final actor ClientMock: Client {
         .preview
     }
     
+    public func update(_ album: Album, artist: String, title: String, artworkPath: String?) async throws -> Album {
+        .preview
+    }
+    
     
     
     // MARK: - Private Functions
